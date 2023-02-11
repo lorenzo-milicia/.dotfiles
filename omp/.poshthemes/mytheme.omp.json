@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#1fb0ff",
+          "style": "plain",
+          "template": "{{ .UserName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "#ffc130",
+          "properties": {
+            "style": "agnoster_short"
+          },
+          "style": "plain",
+          "template": "<#ffffff>in</> {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#ff94df",
+          "properties": {
+            "branch_icon": " <#ff94df><b>\ue0a0 </b></>",
+            "fetch_stash_count": true
+          },
+          "style": "plain",
+          "template": "{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uF692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "python",
+          "style": "plain",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "lightGreen"
+        },
+  {
+          "type": "command",
+          "style": "plain",
+          "foreground": "#0db7ed",
+          "properties": {
+            "shell": "bash",
+            "command": "docker ps -q | wc -l"
+          },
+          "template": "[ {{ .Output }} 🚚 ]"
+        }
+
+      ],
+      "type":"prompt"
+    },
+   {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "lightGreen",
+          "style": "plain",
+          "template": "\u276f",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
