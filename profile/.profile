@@ -31,7 +31,11 @@ fi
 export PATH="$PATH:/home/lorenzo/.local/share/JetBrains/Toolbox/scripts"
 
 # Go
-if [ -n "$GOPATH" ] ; then
-    GOPATH="/home/lorenzo/dev/go"
-    PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
-fi
+
+GOPATH="/home/lorenzo/dev/go"
+PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+GOROOT="/usr/local/go"
+
+# .local/bin
+
+PATH="$PATH:~/.local/bin"
