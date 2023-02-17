@@ -10,6 +10,6 @@
 	name = Lorenzo Milicia
 	email = info@lorenzomilicia.dev
 [core]
-	editor = nvim
+	editor = hx
 [init]
 	defaultBranch = main
