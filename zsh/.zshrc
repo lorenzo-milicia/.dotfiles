@@ -12,7 +12,7 @@ compinit
 # End of lines added by compinstall
 
 # Oh My Posh
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/mytheme.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/custom_catppuccin.omp.json)"
 
 # Aliases
 alias vim=nvim

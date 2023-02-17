@@ -1,0 +1,94 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "palette": {
+          "os": "#ACB0BE",
+          "closer": "p:os",
+          "pink": "#F4B8E4",
+          "lavender": "#BABBF1",
+          "blue":  "#8CAAEE",
+          "orange": "#ffc130"
+    },
+    "blocks": [
+      {
+        "alignment": "left",
+        "segments": [
+            {
+                "foreground": "p:blue",
+                "style": "plain",
+                "template": "{{ .UserName }} ",
+                "type": "session"
+              },
+              {
+                "foreground": "p:orange",
+                "properties": {
+                  "folder_icon": "..📂..",
+                  "home_icon": "~",
+                  "style": "agnoster_short"
+                },
+                "style": "plain",
+                "template": "<#ffffff>in</> {{ .Path }} ",
+                "type": "path"
+              },
+          {
+            "foreground": "p:pink",
+            "properties": {
+              "branch_icon": "\ue725 ",
+              "cherry_pick_icon": "\ue29b ",
+              "commit_icon": "\uf417 ",
+              "fetch_status": false,
+              "fetch_upstream_icon": false,
+              "merge_icon": "\ue727 ",
+              "no_commits_icon": "\uf594 ",
+              "rebase_icon": "\ue728 ",
+              "revert_icon": "\uf0e2 ",
+              "tag_icon": "\uf412 "
+            },
+            "template": "{{ .HEAD }} ",
+            "style": "plain",
+            "type": "git"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "right",
+        "segments": [
+          {
+            "type": "python",
+            "style": "plain",
+            "powerline_symbol": "\uE0B0",
+            "foreground": "lightGreen"
+          },
+    {
+            "type": "command",
+            "style": "plain",
+            "foreground": "#0db7ed",
+            "properties": {
+              "shell": "bash",
+              "command": "docker ps -q | wc -l"
+            },
+            "template": "[ {{ .Output }} 🚚 ]"
+          }
+  
+        ],
+        "type":"prompt"
+      },
+      {
+        "alignment": "left",
+        "newline": true,
+        "segments": [
+          {
+            "foreground": "p:lavender",
+            "style": "plain",
+            "template": "\u276f",
+            "type": "text"
+          }
+        ],
+        "type": "prompt"
+      }
+    ],
+    "final_space": true,
+    "version": 2
+  }
+  
+  
