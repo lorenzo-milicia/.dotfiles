@@ -17,6 +17,7 @@ eval "$(oh-my-posh init zsh --config ~/.poshthemes/custom_catppuccin.omp.json)"
 # Aliases
 alias vim=nvim
 alias docker=podman
+alias pj=processing-java
 
 
 bindkey "^[[1;5C" forward-word
@@ -24,3 +25,6 @@ bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 bindkey "^[[3;5~" kill-word
 bindkey  "^[[3~"  delete-char
+
+autoload -Uz compinit && compinit
+fpath=($fpath ~/completions)

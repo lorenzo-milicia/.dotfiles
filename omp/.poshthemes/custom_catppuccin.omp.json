@@ -3,10 +3,10 @@
   "palette": {
     "os": "#ACB0BE",
     "closer": "p:os",
-    "pink": "#F4B8E4",
+	  "pink": "#FFAEE9",
     "lavender": "#BABBF1",
     "blue": "#8CAAEE",
-    "orange": "#ffc130"
+    "orange": "#FFBB8F"
   },
   "blocks": [
     {

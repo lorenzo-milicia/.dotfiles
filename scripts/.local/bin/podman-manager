@@ -1,0 +1,5 @@
+#!/usr/bin/env nu
+
+def nups [] {
+    podman ps -a | from ssv --aligned-columns | select "CONTAINER ID" NAMES | rename id name
+}

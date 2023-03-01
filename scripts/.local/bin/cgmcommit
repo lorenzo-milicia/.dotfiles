@@ -1,0 +1,15 @@
+#!/usr/bin/env nu
+
+let TYPE = (gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
+
+let CURRENT_BRANCH = (git rev-parse --abbrev-ref HEAD)
+
+let JIRA_ISSUE = (echo $CURRENT_BRANCH | grep -Po 'CGMGPHARM-\K(\d\d\d\d\d)')
+
+# Pre-populate the input with the type: so that the user may change it
+let SUMMARY = (gum input --value "$TYPE: " --placeholder "Summary of this change")
+let DESCRIPTION = (gum write --placeholder "Write commit message (CTRL+D to finish)")
+let SIGNATURE = ("CGMGPHARM-$JIRA_ISSUE")
+
+# Commit these changes
+gum confirm "Commit changes?" and git commit -m "$SUMMARY" -m "$DESCRIPTION" -m $"SIGNATURE"
