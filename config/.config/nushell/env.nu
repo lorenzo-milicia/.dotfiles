@@ -61,6 +61,19 @@ let-env NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+# PATH
+let-env PATH = ($env.PATH | append "/usr/local/go/bin")
+let-env PATH = ($env.PATH | append "/home/lorenzo/dev/go/bin")
+let-env PATH = ($env.PATH | append "/opt/processing-4.1.3")
+let-env PATH = ($env.PATH | append "/home/lorenzo/.local/share/JetBrains/Toolbox/scripts")
+let-env PATH = ($env.PATH | append "/home/lorenzo/.cargo/bin")
+let-env PATH = ($env.PATH | append "/home/lorenzo/.local/bin")
+
+# Other environmental variables
+
+let-env GOPATH = ("/home/lorenzo/dev/go")
+let-env VISUAL = '/usr/bin/hx'
+let-env EDITOR = ($env.VISUAL)
 #Oh My Posh
 oh-my-posh init nu --config ~/.poshthemes/custom_catppuccin.omp.json
 

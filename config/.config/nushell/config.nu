@@ -132,7 +132,7 @@ let dark_theme = {
     # color for nushell primitives
     separator: white
     leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-    header: green_bold
+    header: "#FFBC91"
     empty: blue
     # Closures can be used to choose colors for specific values.
     # The value (in this case, a bool) is piped into the closure.
@@ -148,20 +148,10 @@ let dark_theme = {
     duration: white
     date: { (date now) - $in |
       if $in < 1hr {
-        'red3b'
-      } else if $in < 6hr {
-        'orange3'
-      } else if $in < 1day {
-        'yellow3b'
-      } else if $in < 3day {
-        'chartreuse2b'
-      } else if $in < 1wk {
         'green3b'
-      } else if $in < 6wk {
+      } else if $in < 6hr {
         'darkturquoise'
-      } else if $in < 52wk {
-        'deepskyblue3b'
-      } else { 'dark_gray' }
+      } else { 'white' }
     }    
     range: white
     float: white
@@ -169,7 +159,7 @@ let dark_theme = {
     nothing: white
     binary: white
     cellpath: white
-    row_index: green_bold
+    row_index: { fg: "#FFBC91"  attr: b}
     record: white
     list: white
     block: white
@@ -300,17 +290,17 @@ let light_theme = {
 let-env config = {
   ls: {
     use_ls_colors: true # use the LS_COLORS environment variable to colorize output
-    clickable_links: true # enable or disable clickable links. Your terminal has to support links.
+    clickable_links: false # enable or disable clickable links. Your terminal has to support links.
   }
   rm: {
-    always_trash: false # always act as if -t was given. Can be overridden with -p
+    always_trash: true # always act as if -t was given. Can be overridden with -p
   }
   cd: {
     abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
   }
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-    index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
+    index_mode: auto # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
     trim: {
       methodology: wrapping # wrapping or truncating
       wrapping_try_keep_words: true # A strategy used by the 'wrapping' methodology
@@ -409,7 +399,7 @@ let-env config = {
   edit_mode: emacs # emacs, vi
   shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
   # true or false to enable or disable the welcome banner at startup
-  show_banner: true
+  show_banner: false
   render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
   hooks: {
@@ -434,7 +424,7 @@ let-env config = {
       {
         name: completion_menu
         only_buffer_difference: false
-        marker: "| "
+        marker: ""
         type: {
             layout: columnar
             columns: 4
@@ -442,8 +432,8 @@ let-env config = {
             col_padding: 2
         }
         style: {
-            text: green
-            selected_text: green_reverse
+            text: light_grey
+            selected_text: "#91FEBB"
             description_text: yellow
         }
       }
@@ -456,8 +446,8 @@ let-env config = {
             page_size: 10
         }
         style: {
-            text: green
-            selected_text: green_reverse
+            text: light_grey
+            selected_text: "#91FEBB"
             description_text: yellow
         }
       }
@@ -493,8 +483,8 @@ let-env config = {
             col_padding: 2
         }
         style: {
-            text: green
-            selected_text: green_reverse
+            text: light_grey
+            selected_text: "#91FEBB"
             description_text: yellow
         }
         source: { |buffer, position|
@@ -654,16 +644,6 @@ let-env config = {
 # Oh My Posh
 #source ~/.oh-my-posh.nu
 
-
-# PATH
-let-env PATH = ($env.PATH | append "/usr/local/go/bin")
-let-env GOPATH = ("/home/lorenzo/dev/go")
-let-env PATH = ($env.PATH | append "/home/lorenzo/dev/go/bin")
-let-env PATH = ($env.PATH | append "/opt/processing-4.1.3")
-let-env PATH = ($env.PATH | append "/home/lorenzo/.local/share/JetBrains/Toolbox/scripts")
-let-env PATH = ($env.PATH | append "/home/lorenzo/.cargo/bin")
-let-env PATH = ($env.PATH | append "/home/lorenzo/.local/bin")
-
 # Aliases
 alias cat = bat
 alias echo = coreutils echo
@@ -677,3 +657,6 @@ alias whoami = whoami
 
 # Starship
 source ~/.cache/starship/init.nu
+
+# Glow
+source ~/.config/nushell/glow.nu
